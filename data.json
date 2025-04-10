@@ -1,0 +1,25 @@
+{
+    "cart": {
+      "items": [
+        {
+          "id": "1",
+          "name": "Wireless Mouse",
+          "quantity": 1,
+          "price": 19.99
+        },
+        {
+          "id": "2",
+          "name": "Gaming Keyboard",
+          "quantity": 1,
+          "price": 49.99
+        },
+        {
+          "id": "3",
+          "name": "Bluetooth Speaker",
+          "quantity": 2,
+          "price": 29.99
+        }
+      ]
+    }
+  }
+  
