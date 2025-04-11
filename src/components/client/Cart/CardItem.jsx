@@ -4,7 +4,7 @@ import { CartContext } from "../../../context/CartContext"
 const CardItem = ({ thumbnail, title, price }) => {
   const [qty, setQty] = useState(1)
   const [total, setTotal] = useState(price)
-  const { finalAmount, setFinalAmount, setCartSummary } = useContext(CartContext)
+  const { finalAmount, setFinalAmount } = useContext(CartContext)
 
   const handleChange = (e) => {
     const value = parseInt(e.target.value) || 0
@@ -38,11 +38,11 @@ const CardItem = ({ thumbnail, title, price }) => {
         />
       </td>
 
-      {/* Remove Button */}
-      <td><button className='text-sm font-semibold underline'>Remove</button></td>
-
       {/* Total Price */}
       <td className="px-4 py-2 font-medium">${total.toFixed(2)}</td>
+
+      {/* Remove Button */}
+      <td className="px-4 py-2 text-sm font-semibold underline cursor-pointer">Remove</td>
     </tr>
   )
 }

@@ -2,10 +2,10 @@ import React from 'react'
 
 const CheckoutForm = () => {
   return (
-    <section className="space-y-4 mb-14 w-xl">
+    <section className="space-y-4 mb-14">
       <h2 className="text-xl font-bold">Address</h2>
 
-      <div className="flex gap-4">
+      <div className="flex flex-col md:flex-row gap-4">
         <div className="space-y-2 flex-1">
           <label className="block text-sm font-medium">Name*</label>
           <input
