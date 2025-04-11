@@ -1,1 +1,13 @@
 @import "tailwindcss";
+
+body {
+    margin: auto;
+    width: 80%;
+    height: 100vh;
+}
+
+@theme {
+    --color-primary: #021133;
+    --color-background: #FBF3EA;
+    --color-foreground: #FBF3EA;
+}

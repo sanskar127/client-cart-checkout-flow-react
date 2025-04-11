@@ -1,0 +1,20 @@
+[
+  {
+    "id": "1",
+    "image": "mouse.png",
+    "name": "Wireless Mouse",
+    "price": 19.99
+  },
+  {
+    "id": "2",
+    "image": "keyboard.png",
+    "name": "Gaming Keyboard",
+    "price": 49.99
+  },
+  {
+    "id": "3",
+    "image": "speaker.png",
+    "name": "Bluetooth Speaker",
+    "price": 29.99
+  }
+]
