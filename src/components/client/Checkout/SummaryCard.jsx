@@ -4,7 +4,7 @@ import CouponForm from '../CouponForm';
 const SummaryCard = () => {
   return (
     <section className="bg-background text-primary w-full max-w-lg mx-auto p-6 sm:p-8 lg:p-14">
-      <h3 className="text-2xl mb-4 font-semibold">Summary</h3>
+      <h3 className="text-2xl mb-4 font-semibold">Checkout</h3>
 
       {/* Coupon Form */}
       <CouponForm />
@@ -31,7 +31,6 @@ const SummaryCard = () => {
         </div>
       </div>
 
-      {/* Divider */}
       <div className="h-px my-4 bg-gray-300" />
 
       <div className="font-semibold text-xl flex justify-between mb-4">
