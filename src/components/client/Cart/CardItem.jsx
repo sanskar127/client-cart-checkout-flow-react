@@ -21,7 +21,12 @@ const CardItem = ({ thumbnail, title, price }) => {
       </td>
 
       {/* Product Title */}
-      <td className="font-semibold text-base px-4 py-2">{title}</td>
+      <td className="px-4 py-2">
+        <h3 className='font-semibold text-base'>
+          {title}
+        </h3>
+        <button className='mt-2 text-sm underline cursor-pointer'>Remove</button>
+      </td>
 
       {/* Price */}
       <td className="font-light px-4 py-2">${price}</td>
@@ -40,9 +45,6 @@ const CardItem = ({ thumbnail, title, price }) => {
 
       {/* Total Price */}
       <td className="px-4 py-2 font-medium">${total.toFixed(2)}</td>
-
-      {/* Remove Button */}
-      <td className="px-4 py-2 text-sm font-semibold underline cursor-pointer">Remove</td>
     </tr>
   )
 }

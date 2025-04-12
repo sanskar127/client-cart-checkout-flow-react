@@ -9,5 +9,6 @@ body {
 @theme {
     --color-primary: #021133;
     --color-background: #FBF3EA;
+    --color-background-alt: #d1d5dc;
     --color-foreground: #FBF3EA;
 }

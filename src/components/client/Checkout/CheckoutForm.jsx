@@ -7,7 +7,7 @@ const CheckoutForm = () => {
 
       <div className="flex flex-col md:flex-row gap-4">
         <div className="space-y-2 flex-1">
-          <label className="block text-sm font-medium">Name*</label>
+          <label className="block text-sm font-medium">Name</label>
           <input
             type="text"
             placeholder="Your name"
@@ -17,7 +17,7 @@ const CheckoutForm = () => {
         </div>
 
         <div className="space-y-2 flex-1">
-          <label className="block text-sm font-medium">Email*</label>
+          <label className="block text-sm font-medium">Email</label>
           <input
             type="email"
             placeholder="example@mail.com"
@@ -28,7 +28,7 @@ const CheckoutForm = () => {
       </div>
 
       <div className="space-y-2">
-        <label className="block text-sm font-medium">Address 1*</label>
+        <label className="block text-sm font-medium">Address 1</label>
         <input
           type="text"
           placeholder='1234 Elm Street'
@@ -38,12 +38,34 @@ const CheckoutForm = () => {
       </div>
 
       <div className="space-y-2">
-        <label className="block text-sm font-medium">Address 2</label>
+        <label className="block text-sm font-medium">Address 2 (optional)</label>
         <input
           type="text"
           placeholder='Apt 56B, Oakwood Towers'
           className="w-full h-10 border-2 border-solid border-primary p-2"
         />
+      </div>
+      
+      <div className="flex flex-col md:flex-row gap-4">
+        <div className="space-y-2 flex-1">
+          <label className="block text-sm font-medium">City, State</label>
+          <input
+            type="text"
+            placeholder="Jaipur, Rajesthan"
+            required
+            className="w-full h-10 border-2 border-solid border-primary p-2"
+          />
+        </div>
+
+        <div className="space-y-2 flex-1">
+          <label className="block text-sm font-medium">Pin code</label>
+          <input
+            type="text"
+            placeholder="pincode"
+            required
+            className="w-full h-10 border-2 border-solid border-primary p-2"
+          />
+        </div>
       </div>
     </section>
   )
