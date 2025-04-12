@@ -23,7 +23,7 @@ const CardPage = () => {
           <section>
             <div className="overflow-x-auto"> {/* Enables horizontal scrolling on small screens */}
               <table className="min-w-full text-primary border-separate border-spacing-0">
-                <thead className="bg-background-alt text-left">
+                <thead className="bg-gray-200 text-left">
                   <tr className="border-b border-gray-300">
                     <th className="py-3 px-4 text-left">Product</th>
                     <th className="py-3 px-4"></th>

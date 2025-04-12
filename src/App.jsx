@@ -5,7 +5,7 @@ import CardPage from './pages/CardPage'
 import { CartContext } from './context/CartContext'
 
 const App = () => {
-  const { items, setItems } = useContext(CartContext)
+  const { setItems } = useContext(CartContext)
 
   const router = createBrowserRouter([
     {

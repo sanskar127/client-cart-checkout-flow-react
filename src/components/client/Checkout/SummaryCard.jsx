@@ -17,7 +17,7 @@ const SummaryCard = () => {
   )
 
   const shipping = subtotal === 0 ? 0 : 4.0;
-  const tax = subtotal  === 0 ? 0 : 2.08
+  const tax = subtotal === 0 ? 0 : 2.08
 
   const total = subtotal === 0
     ? 0
@@ -31,14 +31,17 @@ const SummaryCard = () => {
 
       <div className="font-light flex flex-col gap-2 mt-4">
         <div className="flex justify-between">
-        <h4>Subtotal ({totalItems} {totalItems === 1 ? 'item' : 'items'})</h4>
-        <h4>${subtotal.toFixed(2)}</h4>
+          <h4>Subtotal ({totalItems} {totalItems === 1 ? 'item' : 'items'})</h4>
+          <h4>${subtotal.toFixed(2)}</h4>
         </div>
 
-        <div className="flex justify-between">
-          <h4>Coupon Discount</h4>
-          <h4>-${couponDiscount.toFixed(2)}</h4>
-        </div>
+        {couponDiscount ? (
+          <div className="flex justify-between">
+            <h4>Coupon Discount</h4>
+            <h4>-${couponDiscount.toFixed(2)}</h4>
+          </div>
+        ) : ""
+        }
 
         <div className="flex justify-between">
           <h4>Shipping Charge</h4>
