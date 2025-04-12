@@ -6,6 +6,7 @@ const CheckoutForm = ({ handleSubmit }) => {
     email: '',
     phone: '',
     address: '',
+    address2: '',
     city: '',
     postalCode: '',
     country: ''
@@ -27,9 +28,9 @@ const CheckoutForm = ({ handleSubmit }) => {
   };
 
   return (
-    <section className="space-y-4 mb-14">
+    <section className="space-y-4">
       <h2 className="text-xl font-bold">Address</h2>
-      <form onSubmit={handleFormSubmit}>
+      <form onSubmit={handleFormSubmit} className='flex flex-col gap-2 lg:w-2/3'>
 
       <div className="flex flex-col md:flex-row gap-4">
         <div className="space-y-2 flex-1">
@@ -86,13 +87,26 @@ const CheckoutForm = ({ handleSubmit }) => {
       
       <div className="flex flex-col md:flex-row gap-4">
         <div className="space-y-2 flex-1">
-          <label className="block text-sm font-medium">City, State</label>
+          <label className="block text-sm font-medium">City</label>
           <input
             type="text"
             name="city"
             value={formData.city}
             onChange={handleChange}
-            placeholder="Jaipur, Rajesthan"
+            placeholder="Jaipur"
+            required
+            className="w-full h-10 border-2 border-solid border-primary p-2"
+          />
+        </div>
+
+        <div className="space-y-2 flex-1">
+          <label className="block text-sm font-medium">State</label>
+          <input
+            type="text"
+            name="country"
+            value={formData.country}
+            onChange={handleChange}
+            placeholder="Rajesthan"
             required
             className="w-full h-10 border-2 border-solid border-primary p-2"
           />
@@ -110,21 +124,8 @@ const CheckoutForm = ({ handleSubmit }) => {
             className="w-full h-10 border-2 border-solid border-primary p-2"
           />
         </div>
-
-        <div className="space-y-2 flex-1">
-          <label className="block text-sm font-medium">Country</label>
-          <input
-            type="text"
-            name="country"
-            value={formData.country}
-            onChange={handleChange}
-            placeholder="USA"
-            required
-            className="w-full h-10 border-2 border-solid border-primary p-2"
-          />
-        </div>
       </div>
-      <button type="submit" className="w-full bg-primary text-white py-2 mt-4 cursor-pointer">Next</button>
+      <button type="submit" className="lg:w-fit bg-primary text-white py-2 px-6 mt-4 cursor-pointer">Confirm Details</button>
       </form>
     </section>
   )

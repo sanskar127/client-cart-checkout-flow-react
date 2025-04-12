@@ -3,6 +3,7 @@ import { CartContext } from "./CartContext"
 
 const CartProvider = ({ children }) => {
     const [cartSummary, setCartSummary] = useState({})
+    const [items, setItems] = useState([])
     const [finalAmount, setFinalAmount] = useState(0)
     const [couponDiscount, setCouponDiscount] = useState(0)
 
@@ -29,7 +30,7 @@ const CartProvider = ({ children }) => {
 
 
     return (
-        <CartContext.Provider value={{ cartSummary, setCartSummary, finalAmount, setFinalAmount, updateQty, couponDiscount, setCouponDiscount }}>
+        <CartContext.Provider value={{ cartSummary, setCartSummary, finalAmount, setFinalAmount, updateQty, couponDiscount, setCouponDiscount, items, setItems }}>
             {children}
         </CartContext.Provider>
     )

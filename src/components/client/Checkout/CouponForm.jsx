@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import toast from 'react-hot-toast';
-import { CartContext } from '../../context/CartContext';
+import { CartContext } from '../../../context/CartContext';
 
 const CouponForm = ({subtotal}) => {
   const [couponCode, setCouponCode] = useState('');
@@ -34,16 +34,16 @@ const CouponForm = ({subtotal}) => {
   };
 
   return (
-    <form onSubmit={handleApply} className="flex items-center gap-2">
+    <form onSubmit={handleApply} className="flex items-center h-10">
       <input
         type="text"
         placeholder="Enter coupon code"
         value={couponCode}
         onChange={(e) => setCouponCode(e.target.value)}
-        className="border border-gray-300 rounded px-4 py-2 w-full"
+        className="border-2 border-primary px-4 py-2 w-full h-full"
         required
       />
-      <button type="submit" className="bg-primary text-white px-4 py-2 rounded cursor-pointer">
+      <button type="submit" className="bg-primary h-full text-foreground px-4 py-2 cursor-pointer">
         Apply
       </button>
     </form>

@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import CouponForm from '../CouponForm';
+import CouponForm from './CouponForm';
 import { CartContext } from '../../../context/CartContext';
 
 const SummaryCard = () => {
@@ -55,7 +55,7 @@ const SummaryCard = () => {
       <div className="h-px my-4 bg-gray-300" />
 
       <div className="font-semibold text-xl flex justify-between mb-4">
-        <h3>Final Amount</h3>
+        <h3>Estimated total</h3>
         <h3 className="text-xl">${total}</h3>
       </div>
 

@@ -1,30 +1,19 @@
-import React, { useEffect, useState, useContext } from 'react'
+import React, { useContext } from 'react'
 import CardItem from '../components/client/Cart/CardItem'
 import { CartContext } from "../context/CartContext"
 import { useNavigate } from 'react-router-dom'
 
 const CardPage = () => {
-  const [items, setItems] = useState([])
-  const { finalAmount } = useContext(CartContext)
+
+  const { finalAmount, items } = useContext(CartContext)
 
   const navigate = useNavigate()
-
-  useEffect(() => {
-    const getdata = async () => {
-      const response = await fetch("/data.json")
-      const data = await response.json()
-      setItems(data)
-    }
-
-    getdata()
-  }, [])
 
   return (
     <div className='py-12 font-mono sm:py-6'>
       {/* Heading */}
       <header className='mb-10'>
         <h2 className='text-primary text-4xl font-bold'>Your Cart</h2>
-        <p>1 item ships at checkout</p>
       </header>
 
       {/* Main Section */}
@@ -48,6 +37,7 @@ const CardPage = () => {
                   {items.map(item => (
                     <CardItem
                       key={item.id}
+                      productId={item.id}
                       thumbnail={item.image}
                       title={item.name}
                       price={item.price}
