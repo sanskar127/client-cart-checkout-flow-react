@@ -29,8 +29,6 @@ const CouponForm = ({ subtotal }) => {
     } else {
       toast.error('Invalid coupon code');
     }
-
-    setCouponCode('');
   };
 
   const handleRemoveCoupon = () => {
@@ -47,8 +45,7 @@ const CouponForm = ({ subtotal }) => {
         <div className="flex items-center h-10">
           <input
             type="text"
-            placeholder="Coupon applied!"
-            value={couponCode}
+            value={`${couponCode} applied!`}
             onChange={(e) => setCouponCode(e.target.value)}
             className="border-2 border-green-800 px-4 py-2 w-full h-full"
             disabled

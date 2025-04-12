@@ -6,13 +6,16 @@ const CartProvider = ({ children }) => {
     const [items, setItems] = useState([])
     const [finalAmount, setFinalAmount] = useState(0)
     const [couponDiscount, setCouponDiscount] = useState(0)
+    const [formStep, setFormStep] = useState(1); // Step to control which component is shown
+    const [customerData, setCustomerData] = useState({})
+    const [active, setActive] = useState(false)
 
-
-    const updateQty = (itemKey, newQty, price) => {
+    const updateQty = (itemKey, newQty, price, title) => {
         setCartSummary(prev => ({
             ...prev,
             [itemKey]: {
                 ...prev[itemKey],
+                title,
                 qty: newQty,
                 price: price
             }
@@ -30,7 +33,9 @@ const CartProvider = ({ children }) => {
 
 
     return (
-        <CartContext.Provider value={{ cartSummary, setCartSummary, finalAmount, setFinalAmount, updateQty, couponDiscount, setCouponDiscount, items, setItems }}>
+        <CartContext.Provider value={{
+            cartSummary, setCartSummary, finalAmount, setFinalAmount, updateQty, couponDiscount, setCouponDiscount, items, setItems, formStep, setFormStep, customerData, setCustomerData, active, setActive
+        }}>
             {children}
         </CartContext.Provider>
     )

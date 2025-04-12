@@ -10,17 +10,17 @@ const CardItem = ({ productId, thumbnail, title, price }) => {
 
   useEffect(() => {
     if (!cartSummary[itemKey]) {
-      updateQty(itemKey, 1, price)
+      updateQty(itemKey, 1, price, title)  // Pass title as static name
     }
-  }, [cartSummary, itemKey, price, updateQty])
+  }, [cartSummary, itemKey, price, title, updateQty])
 
   const handleIncrement = () => {
-    updateQty(itemKey, qty + 1, price)
+    updateQty(itemKey, qty + 1, price, title)  // Pass title as static name
   }
 
   const handleDecrement = () => {
     if (qty > 1) {
-      updateQty(itemKey, qty - 1, price)
+      updateQty(itemKey, qty - 1, price, title)  // Pass title as static name
     }
   }
 
@@ -30,7 +30,7 @@ const CardItem = ({ productId, thumbnail, title, price }) => {
     delete updatedSummary[itemKey]
 
     // Set the updated summary in the context
-    updateQty(itemKey, 0, price)
+    updateQty(itemKey, 0, price, title)  // Pass title as static name
 
     // Filter out the item from the items array
     const updatedItems = items.filter(item => item.id !== id)

@@ -1,10 +1,16 @@
-import React, { useContext } from 'react';
+import React, { act, useContext } from 'react';
 import CouponForm from './CouponForm';
 import { CartContext } from '../../../context/CartContext';
 
 const SummaryCard = () => {
-  const { cartSummary, couponDiscount } = useContext(CartContext);
-  console.log(cartSummary);
+  const { cartSummary, couponDiscount, active } = useContext(CartContext);
+
+  console.log(active)
+
+  const handleClick = () => {
+    alert("Hello World")
+  }
+
   // Calculate Subtotal & Total Items
   const subtotal = Object.values(cartSummary).reduce(
     (acc, item) => acc + (item.price || 0) * (item.qty || 0),
@@ -22,6 +28,7 @@ const SummaryCard = () => {
   const total = subtotal === 0
     ? 0
     : (subtotal - couponDiscount + shipping + tax).toFixed(2);
+
   return (
     <section className='bg-background text-primary w-full lg:w-1/3 p-6 lg:p-14'>
       <h3 className="text-2xl mb-4 font-semibold">Summary</h3>
@@ -62,7 +69,11 @@ const SummaryCard = () => {
         <h3 className="text-xl">${total}</h3>
       </div>
 
-      <button className="bg-primary text-foreground text-xl font-medium text-center w-full py-3 cursor-pointer">
+      <button
+        onClick={handleClick}
+        className={`text-xl font-medium text-center w-full py-3 ${active ? "bg-primary text-foreground cursor-pointer" : "bg-gray-300 text-foreground"}`}
+        disabled={!active} // Disable button if not active
+      >
         Place Order
       </button>
     </section>
