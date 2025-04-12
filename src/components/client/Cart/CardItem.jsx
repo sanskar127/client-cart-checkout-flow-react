@@ -1,49 +1,50 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { CartContext } from "../../../context/CartContext"
+import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai"
 
 const CardItem = ({ thumbnail, title, price }) => {
-  const [qty, setQty] = useState(1)
-  const [total, setTotal] = useState(price)
-  const { finalAmount, setFinalAmount } = useContext(CartContext)
+  const { cartSummary, updateQty } = useContext(CartContext)
+  const itemKey = title
+  const qty = cartSummary[itemKey]?.qty || 1
+  const total = qty * price
 
-  const handleChange = (e) => {
-    const value = parseInt(e.target.value) || 0
-    setQty(value)
-    setTotal(value * price)
-    setFinalAmount(finalAmount + total)
+  useEffect(() => {
+    if (!cartSummary[itemKey]) {
+      updateQty(itemKey, 1, price)
+    }
+  }, [cartSummary, itemKey, price, updateQty])
+
+  const handleIncrement = () => {
+    updateQty(itemKey, qty + 1, price)
+  }
+
+  const handleDecrement = () => {
+    if (qty > 1) {
+      updateQty(itemKey, qty - 1, price)
+    }
   }
 
   return (
     <tr className="border-t border-gray-300">
-      {/* Thumbnail */}
       <td className="w-24 h-24 p-2">
         <img src={thumbnail} alt={title} className="w-full h-full object-cover rounded" />
       </td>
-
-      {/* Product Title */}
       <td className="px-4 py-2">
-        <h3 className='font-semibold text-base'>
-          {title}
-        </h3>
+        <h3 className='font-semibold text-base'>{title}</h3>
         <button className='mt-2 text-sm underline cursor-pointer'>Remove</button>
       </td>
-
-      {/* Price */}
       <td className="font-light px-4 py-2">${price}</td>
-
-      {/* Quantity Input */}
       <td className="px-4 py-2">
-        <input
-          type="number"
-          value={qty}
-          min={1}
-          className="w-16 h-10 border-2 border-primary p-2 rounded"
-          onChange={handleChange}
-          required
-        />
+        <div className="flex items-center gap-2">
+          <button onClick={handleDecrement} className="p-1 border rounded text-primary hover:bg-primary hover:text-white cursor-pointer">
+            <AiOutlineMinus />
+          </button>
+          <span className="px-2">{qty}</span>
+          <button onClick={handleIncrement} className="p-1 border rounded text-primary hover:bg-primary hover:text-white cursor-pointer">
+            <AiOutlinePlus />
+          </button>
+        </div>
       </td>
-
-      {/* Total Price */}
       <td className="px-4 py-2 font-medium">${total.toFixed(2)}</td>
     </tr>
   )
