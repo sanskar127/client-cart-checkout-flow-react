@@ -1,14 +1,15 @@
-import React, { act, useContext } from 'react';
+import React, { useContext } from 'react';
 import CouponForm from './CouponForm';
 import { CartContext } from '../../../context/CartContext';
+import { useNavigate } from 'react-router-dom';
 
 const SummaryCard = () => {
   const { cartSummary, couponDiscount, active } = useContext(CartContext);
-
-  console.log(active)
+  const navigate = useNavigate()
 
   const handleClick = () => {
-    alert("Hello World")
+    alert("Order Placed")
+    navigate("/")
   }
 
   // Calculate Subtotal & Total Items
