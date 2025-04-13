@@ -19,9 +19,9 @@ const DetailsCard = () => {
           <p className="text-sm text-gray-600 leading-relaxed">{customerData.email}</p>
           <p className="text-sm text-gray-600 leading-relaxed">{customerData.address},</p>
           <p className="text-sm text-gray-600 leading-relaxed">{customerData.address2},</p>
-          <p className="text-sm text-gray-600 leading-relaxed">City {customerData.city},</p>
-          <p className="text-sm text-gray-600 leading-relaxed">State{customerData.state},</p>
-          <p className="text-sm text-gray-600 leading-relaxed">Postal Code{customerData.postalCode}</p>
+          <p className="text-sm text-gray-600 leading-relaxed">{customerData.city},</p>
+          <p className="text-sm text-gray-600 leading-relaxed">{customerData.state},</p>
+          <p className="text-sm text-gray-600 leading-relaxed">{customerData.postalCode}</p>
         </section>
 
         <div className="border-t border-gray-200" />
